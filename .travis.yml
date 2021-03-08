@@ -15,4 +15,4 @@ before_install:
    - export PATH=${MAVEN_HOME}/bin:${PATH}
 
 script:
-  - mvn clean package -DskipTests
+  - travis_wait mvn clean package -DskipTests
