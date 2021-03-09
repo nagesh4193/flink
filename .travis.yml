@@ -6,7 +6,7 @@ arch:
 
 jdk:
   - openjdk8
-  - openjdk11
+#  - openjdk11
 
 before_install: 
    - mkdir -p /opt/maven
@@ -15,4 +15,5 @@ before_install:
    - export PATH=${MAVEN_HOME}/bin:${PATH}
 
 script:
-  - travis_wait mvn clean package -DskipTests
+  - travis_wait mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+  - mvn clean package -DskipTests
